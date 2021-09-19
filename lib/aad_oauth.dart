@@ -62,6 +62,11 @@ class AadOAuth {
   Future<String?> getIdToken() async =>
       (await _authStorage.loadTokenFromCache()).idToken;
 
+    /// Retrieve cached refresh Access Token.
+  Future<String?> getRefreshTokn() async =>
+      (await _authStorage.loadTokenFromCache()).refreshToken;
+  
+  
   /// Perform Azure AD logout.
   Future<void> logout() async {
     await _authStorage.clear();
